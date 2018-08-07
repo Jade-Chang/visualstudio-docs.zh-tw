@@ -34,7 +34,7 @@ Azure App Service 是以一組 App Service「網站延伸模組」的形式來�
 ## <a name="choosing-a-python-version-through-the-azure-portal"></a>透過 Azure 入口網站選擇 Python 版本
 
 1. 在 Azure 入口網站中，為您的 Web 應用程式建立 App Service。
-1. 在 App Service 頁面中，捲動到 [開發工具] 區段，再依序選取 [延伸模組] 和 [+ 新增]。
+1. 在 App Service 頁面中，捲動到 [開發工具] 區段，再依序選取 [擴充功能] 和 [+ 新增]。
 1. 向下捲動至含有所需 Python 版本的延伸模組清單中：
 
     ![顯示 Python 延伸模組的 Azure 入口網站](media/python-on-azure-extensions.png)
@@ -85,15 +85,15 @@ Azure App Service 是以一組 App Service「網站延伸模組」的形式來�
 
 Python 網站延伸模組會安裝在伺服器的 `d:\home` 下方，適當的 Python 版本和架構資料夾中 (少數較舊版本例外)。 例如，Python 3.6.1 x64 會安裝在 `d:\home\python361x64`。 因此，Python 解譯器的完整路徑即為 `d:\home\python361x64\python.exe`。
 
-若要查看 App Service 上的特定路徑，請選取 App Service 頁面的 [延伸模組]，然後選取清單中的延伸模組。
+若要查看 App Service 上的特定路徑，請選取 App Service 頁面的 [擴充功能]，然後選取清單中的擴充功能。
 
-![Azure App Service 上的延伸模組清單](media/python-on-azure-extension-list.png)
+![Azure App Service 上的擴充功能清單](media/python-on-azure-extension-list.png)
 
 這個動作會開啟延伸模組描述頁面，其中包含路徑：
 
-![Azure App Service 上的延伸模組詳細資料](media/python-on-azure-extension-detail.png)
+![Azure App Service 上的擴充功能詳細資料](media/python-on-azure-extension-detail.png)
 
-如果您無法查看延伸模組的路徑，可以手動使用主控台來尋找：
+如果您無法查看擴充功能的路徑，可以手動使用主控台來尋找：
 
 1. 在您的 App Service 頁面上，選取 [開發工具] > [主控台]。
 1. 輸入 `ls ../home` 或 `dir ..\home` 命令，以查看最上層的延伸模組資料夾，例如 `Python361x64`。
@@ -159,7 +159,7 @@ HTTP 平台處理常式模組會將通訊端連線直接傳遞給獨立的 Pytho
 
 ## <a name="installing-packages"></a>安裝套件
 
-透過網站延伸模組安裝的 Python 解譯器只是 Python 環境的一小部分。 您可能還需要在該環境中安裝不同的套件。
+透過網站擴充功能安裝的 Python 解譯器只是 Python 環境的一小部分。 您可能還需要在該環境中安裝不同的套件。
 
 若要直接在伺服器環境中安裝套件，請使用下列方法之一：
 
@@ -174,7 +174,7 @@ HTTP 平台處理常式模組會將通訊端連線直接傳遞給獨立的 Pytho
 
 [Kudu console](https://github.com/projectkudu/kudu/wiki/Kudu-console) (Kudu 主控台) 可讓您透過直接且提高權限的命令列存取 App Service 伺服器和其檔案系統。 這既是一項重要的偵錯工具，也可讓 CLI 作業 (例如安裝套件) 順利進行。
 
-1. 在 Azure 入口網站上，依序選取 [開發工具] > [進階工具]，然後選取 [移至]，即可從您的 App Service 頁面開啟 Kudu。 這個動作會瀏覽至與基底 App Service URL 相同的 URL，差別只在於插入了 `.scm`。 例如，如果您的基底 URL 是 `https://vspython-test.azurewebsites.net/`，則 Kudu 位於 `https://vspython-test.scm.azurewebsites.net/` (您可將其設為書籤)：
+1. 在 Azure 入口網站上，依序選取 [開發工具] > [進階工具]，然後選取 [執行]，即可從您的 App Service 頁面開啟 Kudu。 這個動作會瀏覽至與基底 App Service URL 相同的 URL，差別只在於插入了 `.scm`。 例如，如果您的基底 URL 是 `https://vspython-test.azurewebsites.net/`，則 Kudu 位於 `https://vspython-test.scm.azurewebsites.net/` (您可將其設為書籤)：
 
     ![Azure App Service 的 Kudu 主控台](media/python-on-azure-console01.png)
 
